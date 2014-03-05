@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="Foo" >
+        <id name="id" column="id" type="int">
+            <generator class="native"/>
+        </id>
+        <one-to-one name="bar" />
+    </class>
+  <class name="Bar" >
+        <id name="id" column="id" type="int">
+            <generator class="foreign">
+            <param name="property">foo</param>
+            </generator>
+        </id>
+        <one-to-one name="foo" 
+        constrained="true"/>
+    </class>
+  
+	
+	 
+
+
+
+</hibernate-mapping>

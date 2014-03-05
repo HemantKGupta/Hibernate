@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="Foo" table="foo">
+        <composite-id name="id" class="Person">
+            <key-property name="name" type="string" column="name"/>
+            <key-many-to-one name="address" class="Address" column="addr_id"/>
+        </composite-id>
+        <property name="age" column="age" type="string"/>
+    </class>
+
+    <class name="Address" table="address">
+        <id name="id" column="address_id" type="int">
+            <generator class="assigned"/>
+        </id>
+    </class>
+</hibernate-mapping>

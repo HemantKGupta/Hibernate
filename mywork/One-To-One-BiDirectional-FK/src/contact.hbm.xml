@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="Foo" >
+        <id name="id" column="id" type="int">
+            <generator class="native"/>
+        </id>
+        <many-to-one name="bar" column="foo_bar" class="Bar" unique="true" not-null="true" cascade="all"/>
+    </class>
+  <class name="Bar" >
+        <id name="id" column="id" type="int">
+            <generator class="native"/>
+        </id>
+        <one-to-one name="foo" 
+        property-ref="bar"/>
+    </class>
+  
+	
+	 
+
+
+
+</hibernate-mapping>

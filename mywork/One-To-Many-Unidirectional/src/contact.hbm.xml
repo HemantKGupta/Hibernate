@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+ <class name="Foo" table="foo">
+        <id name="id" column="id" type="int">
+            <generator class="assigned"/>
+        </id>
+
+        <set name="bars" table="bar">
+            <key column="foo_id"/>
+            <one-to-many class="Bar"/>
+        </set>
+    </class>
+
+    <class name="Bar" table="bar">
+        <id name="id" column="id" type="int">
+            <generator class="assigned"/>
+        </id>
+    </class>
+
+
+</hibernate-mapping>
